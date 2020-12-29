@@ -1,0 +1,10 @@
+<dependency>
+    <groupId>chat.tamtam</groupId>
+    <artifactId>tamtam-bot-api</artifactId>
+    <version>0.3.0</version>
+</dependency>
+TamTamBotAPI api = TamTamBotAPI.create("VylQllpwt_TKGcOn5IBzHHWTHucZWptp3nbKffQ7efU");
+UploadEndpoint endpoint = botAPI.getUploadUrl(UploadType.VIDEO).execute();
+String uploadUrl = endpoint.getUrl();
+TamTamUploadAPI uploadAPI = new TamTamUploadAPI(client);
+UploadedInfo uploadedInfo = uploadAPI.uploadFile(uploadUrl, new File("%FILE_PATH%")).execute();
